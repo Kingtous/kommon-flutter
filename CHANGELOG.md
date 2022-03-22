@@ -1,3 +1,8 @@
+## 0.2.0-dev.2
+
+FIX
+- function exports.
+
 ## 0.2.0-dev.1
 
 ADD:
