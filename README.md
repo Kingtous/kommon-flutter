@@ -14,7 +14,9 @@ and the Flutter guide for
 ## Kommon Package
 
 Kingtous' Common Package Collection for Flutter. 
-方便开发的全能类库
+方便开发的全能类库.
+
+Inspired by [flutter_flexible].
 
 ## Features
 
@@ -28,6 +30,7 @@ Kingtous' Common Package Collection for Flutter.
 7. Video Player by [better player].
 8. Permission Handler by [permission handler].
 9. HTTP requests by [Request] based on [Dio].
+
 
 
 ## Third Party Packages
