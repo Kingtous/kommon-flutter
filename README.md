@@ -30,6 +30,8 @@ Inspired by [flutter_flexible].
 7. Video Player by [better player].
 8. Permission Handler by [permission handler].
 9. HTTP requests by [Request] based on [Dio].
+10. Picker by [file picker] and [image picker].
+11. Image cropper by [crop your image].
 
 ## Third Party Packages
 
@@ -51,6 +53,10 @@ permission_handler: ^9.2.0
 better_player: ^0.0.81
 dio: ^4.0.3
 synchronized: ^3.0.0
+crop_your_image: ^0.7.2
+image_picker: ^0.8.4+11
+file_picker: ^4.5.1
+flustars: ^2.0.1
 ```
 ## Getting started
 
@@ -63,6 +69,38 @@ and start your development.
 
 ## Usage
 
-import package and as you wish.
+### Overview
 
+This package contains folders below:
+- cache
+- dialog
+- image
+  - ImgView
+- list
+  - LazyList
+- picker
+- request
+  - Request with Logger
+- tool
+  - DateUtil
+  - LogUtil
+  - PermUtil
+  - SpUtil
+  - TipsUtil(Toast)
+- video
+  - VideoPlayer
 
+### Screen / Pages
+
+- PhotoGalleryScreen
+  - show a photo gallery, used by [ImgView]
+- ImageCropScreen
+  - Image Crop
+
+### Services
+Services are based on [GetX Service]. Please use `Get.put` or `Get.lazyPut` to initialize first.
+
+- CacheService
+- DialogService
+- ImageCropService
+- PickerService

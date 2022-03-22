@@ -53,21 +53,21 @@ class PhotoGalleyScreen extends StatelessWidget {
                         Get.back();
                       },
                       child: Container(
-                        decoration: BoxDecoration(color: Colors.black12),
+                        decoration: const BoxDecoration(color: Colors.black12),
                         padding: const EdgeInsets.all(4.0),
-                        child: Icon(
+                        child: const Icon(
                           Icons.chevron_left,
                           color: Colors.white,
                           size: 40,
                         ),
                       )),
                   Container(
-                    decoration: BoxDecoration(color: Colors.black12),
+                    decoration: const BoxDecoration(color: Colors.black12),
                     padding: const EdgeInsets.all(8.0),
                     child: Obx(
                       () => Text(
                         "${page.value + 1}/${photos.length}",
-                        style: TextStyle(color: Colors.white),
+                        style: const TextStyle(color: Colors.white),
                       ),
                     ),
                   )
