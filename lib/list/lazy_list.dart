@@ -7,13 +7,23 @@ class LazyList<T> extends StatefulWidget {
   final Future<List<T>> Function(int pageSize, int pageIndex) load;
   final int initialIndex;
   final int pageSize;
+  final VoidCallback? onRefreshComplete;
+  final VoidCallback? onRefreshFailed;
+  final VoidCallback? onLoadComplete;
+  final VoidCallback? onLoadFailed;
+  final ScrollController? scrollController;
 
   const LazyList(
       {Key? key,
-      required this.buildItem,
-      required this.load,
-      this.initialIndex = 1,
-      this.pageSize = 10})
+        required this.buildItem,
+        required this.load,
+        this.initialIndex = 1,
+        this.pageSize = 10,
+        this.onRefreshComplete,
+        this.onRefreshFailed,
+        this.onLoadComplete,
+        this.onLoadFailed,
+        this.scrollController})
       : super(key: key);
 
   @override
@@ -36,8 +46,9 @@ class _LazyListState<T> extends State<LazyList<T>>
   Widget build(BuildContext context) {
     super.build(context);
     return Obx(
-      () => SmartRefresher(
+          () => SmartRefresher(
         controller: refresh,
+        scrollController: widget.scrollController,
         onRefresh: onRefresh,
         onLoading: onLoad,
         enablePullDown: true,
@@ -60,8 +71,10 @@ class _LazyListState<T> extends State<LazyList<T>>
         data.addAll(value);
         refresh.loadComplete();
       }
+      widget.onLoadComplete?.call();
     }).catchError((e) {
       refresh.loadFailed();
+      widget.onLoadFailed?.call();
     });
   }
 
@@ -74,8 +87,10 @@ class _LazyListState<T> extends State<LazyList<T>>
         data.value = value;
         refresh.refreshCompleted();
       }
+      widget.onRefreshComplete?.call();
     }).catchError((e) {
       refresh.refreshFailed();
+      widget.onRefreshFailed?.call();
     });
   }
 
