@@ -31,8 +31,6 @@ Inspired by [flutter_flexible].
 8. Permission Handler by [permission handler].
 9. HTTP requests by [Request] based on [Dio].
 
-
-
 ## Third Party Packages
 
 ```yaml
@@ -45,13 +43,14 @@ get: ^4.6.1
 getwidget: ^2.0.5
 pull_to_refresh: ^2.0.0
 jh_debug: ^1.0.1
-fluttertoast: 8.0.8
+fluttertoast: ^8.0.8
 animate_do: ^2.1.0
-shared_preferences: 2.0.13 # 持久性存储
+shared_preferences: ^2.0.13 
 flutter_datetime_picker: ^1.5.1
-permission_handler: 9.2.0 # 权限
+permission_handler: ^9.2.0
 better_player: ^0.0.81
-dio: 4.0.3
+dio: ^4.0.3
+synchronized: ^3.0.0
 ```
 ## Getting started
 

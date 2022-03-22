@@ -34,6 +34,7 @@ class _LazyListState<T> extends State<LazyList<T>>
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Obx(
       () => SmartRefresher(
         controller: refresh,
