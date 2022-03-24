@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 
-class DateUtil {
-  DateUtil._();
+class KDateUtil {
+  KDateUtil._();
 
   static String formatDate(DateTime? t, {isTime = false}) {
     t = t?.toLocal();

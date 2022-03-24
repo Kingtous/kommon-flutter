@@ -8,6 +8,7 @@ export 'picker/index.dart';
 export 'request/index.dart';
 export 'tool/index.dart';
 export 'video/video_player.dart';
+export 'chart/index.dart';
 /// 第三方库
 export 'package:animations/animations.dart';
 export 'package:photo_view/photo_view.dart';
@@ -19,3 +20,4 @@ export 'package:jh_debug/jh_debug.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:bruno/bruno.dart';
 export 'package:better_player/better_player.dart';
+export 'package:animate_do/animate_do.dart';
