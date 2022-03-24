@@ -18,6 +18,8 @@ class KCircleChart extends StatelessWidget {
   final int ringWidth;
   final bool showLegend;
   final bool showTitleOnlyWhenSelected;
+  final double fontSize;
+  final Orientation orientation;
 
   KCircleChart(
       {Key? key,
@@ -26,7 +28,8 @@ class KCircleChart extends StatelessWidget {
       this.ringWidth = 50,
       required this.height,
       this.showLegend = false,
-      this.showTitleOnlyWhenSelected = false})
+      this.showTitleOnlyWhenSelected = false,
+      this.fontSize = 12, this.orientation = Orientation.landscape})
       : super(key: key);
 
   List<BrnDoughnutDataItem> getDataItem() {
@@ -41,30 +44,29 @@ class KCircleChart extends StatelessWidget {
     final items = getDataItem();
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Row(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Expanded(
-            child: Obx(
-              () => BrnDoughnutChart(
-                data: getDataItem(),
-                width: width ?? Get.width,
-                height: height,
-                ringWidth: ringWidth,
-                selectedItem: selectedObs.value,
-                showTitleWhenSelected: showTitleOnlyWhenSelected,
-                selectCallback: (s) {
-                  selectedObs.value = s;
-                },
-              ),
+          Obx(
+            () => BrnDoughnutChart(
+              data: getDataItem(),
+              width: width ?? Get.width,
+              height: height,
+              ringWidth: ringWidth,
+              selectedItem: selectedObs.value,
+              fontSize: fontSize,
+              showTitleWhenSelected: showTitleOnlyWhenSelected,
+              selectCallback: (s) {
+                selectedObs.value = s;
+              },
             ),
           ),
           showLegend
               ? DoughnutChartLegend(
                   data: items,
-                  legendStyle: BrnDoughnutChartLegendStyle.list,
-                )
+                  legendStyle: BrnDoughnutChartLegendStyle.wrap,
+                ).paddingOnly(top: 8.0)
               : const Offstage()
         ],
       ),
