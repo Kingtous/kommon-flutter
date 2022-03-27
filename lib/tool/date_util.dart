@@ -1,6 +1,3 @@
-import 'package:bruno/bruno.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:get/get.dart';
 
@@ -12,6 +9,12 @@ class KDateUtil {
     return t == null
         ? ""
         : "${t.year}年${t.month}月${t.day}日 ${isTime ? "${t.hour.toString().padLeft(2, "0")}:${t.minute.toString().padLeft(2, "0")}:${t.day.toString().padLeft(2, "0")}" : ""}";
+  }
+
+  static String formatTime(DateTime? t, {hasSec = false}) {
+    return t == null
+        ? ""
+        : "${t.hour.toString().padLeft(2, "0")}:${t.minute.toString().padLeft(2, "0")}";
   }
 
   static String formatYearMonth(DateTime? t) {
