@@ -14,7 +14,9 @@ dependencies:
   cached_network_image: ^3.1.0
   photo_view: ^0.13.0
   animations: ^2.0.2
-  bruno: ^2.1.1
+  bruno:
+    git:
+      url: git@github.com:Kingtous/bruno.git
   fl_chart: ^0.45.1
   get: ^4.6.1
   getwidget: ^2.0.5
