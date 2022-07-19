@@ -1,3 +1,10 @@
+## 0.2.2
+
+REFACTOR:
+
+- change `bruno` to mainline `3.0` version
+- add `flutter_echarts`
+
 ## 0.2.1-dev.1
 
 ADD:
