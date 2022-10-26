@@ -26,3 +26,4 @@ export 'picker/index.dart';
 export 'request/index.dart';
 export 'tool/index.dart';
 export 'video/video_player.dart';
+export 'canvas/index.dart';
