@@ -1,5 +1,9 @@
+import 'package:flutter/foundation.dart';
+
 class LogUtil {
   static d(Object? data) {
-    print(data);
+    if (kDebugMode) {
+      print(data);
+    }
   }
 }

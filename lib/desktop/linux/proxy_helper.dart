@@ -5,6 +5,8 @@ import 'package:path/path.dart';
 
 enum ProxyTypes { http, https, socks }
 
+/// @Deprecated
+/// use proxy-manager instead
 class ProxyHelper {
   static void setAsSystemProxy(ProxyTypes types, String url, int port) {
     switch (Platform.operatingSystem) {

@@ -1,13 +1,14 @@
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LaunchUtils {
 
   static Future<bool> openUrl(String item) {
-    return launch(item);
+    return launchUrlString(item);
   }
 
   static Future<bool> openUri(Uri uri){
-    return launch(uri.toString());
+    return launchUrl(uri);
   }
 
 }
