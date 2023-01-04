@@ -29,7 +29,8 @@ class KCircleChart extends StatelessWidget {
       required this.height,
       this.showLegend = false,
       this.showTitleOnlyWhenSelected = false,
-      this.fontSize = 12, this.orientation = Orientation.landscape})
+      this.fontSize = 12,
+      this.orientation = Orientation.landscape})
       : super(key: key);
 
   List<BrnDoughnutDataItem> getDataItem() {

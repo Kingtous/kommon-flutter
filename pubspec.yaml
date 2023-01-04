@@ -1,6 +1,6 @@
 name: kommon
 description: kingtous common package collections.
-version: 0.3.0
+version: 0.3.1
 homepage: https://github.com/Kingtous/kommon-flutter
 documentation: https://kingtous.github.io/kommon-flutter/
 
@@ -26,10 +26,11 @@ dependencies:
   shared_preferences: ^2.0.13
   flutter_datetime_picker: ^1.5.1
   permission_handler: ^10.0.0
-  better_player: ^0.0.83
+  #  better_player: ^0.0.83
   dio: ^4.0.3
   synchronized: ^3.0.0
-  crop_your_image: ^0.7.2
+  crop_your_image: ^0.7.3
+  image: '>=3.2.2 <3.3.0'
   image_picker: ^0.8.4+11
   file_picker: ^5.0.1
   flustars: ^2.0.1

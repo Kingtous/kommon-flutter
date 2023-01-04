@@ -16,8 +16,12 @@ class ImageCropScreen extends StatelessWidget {
   final String cropText;
   final Function(Uint8List)? onCropped;
 
-  const ImageCropScreen({Key? key, required this.path, this.onCropped,
-    this.titleText="裁剪图像", this.cropText = "裁剪"})
+  const ImageCropScreen(
+      {Key? key,
+      required this.path,
+      this.onCropped,
+      this.titleText = "裁剪图像",
+      this.cropText = "裁剪"})
       : super(key: key);
 
   @override

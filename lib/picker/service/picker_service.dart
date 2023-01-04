@@ -42,8 +42,9 @@ class PickerService extends GetxService {
             imageQuality: imageQuality);
         break;
       case PickSource.PLAINTEXT:
-        final text = await Get.find<DialogService>().inputDialog(title: "输入选项文本");
-        if (text.isEmpty){
+        final text =
+            await Get.find<DialogService>().inputDialog(title: "输入选项文本");
+        if (text.isEmpty) {
           return null;
         }
         return "text://" + text;

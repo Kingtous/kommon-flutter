@@ -20,8 +20,7 @@ class CacheService extends GetxService {
     tempVideoTempDir = await DirectoryUtil.createTempDir(category: 'video');
     otherTempFileDir = await DirectoryUtil.createTempDir(category: 'other');
     // 清理缓存
-    Future.delayed(
-        const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       emptyCache(CacheFileType.pic);
       emptyCache(CacheFileType.video);
       emptyCache(CacheFileType.other);

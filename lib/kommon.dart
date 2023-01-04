@@ -4,7 +4,7 @@ export 'package:animate_do/animate_do.dart';
 
 /// 第三方库
 export 'package:animations/animations.dart';
-export 'package:better_player/better_player.dart';
+// export 'package:better_player/better_player.dart';
 export 'package:bruno/bruno.dart';
 export 'package:cached_network_image/cached_network_image.dart';
 export 'package:fl_chart/fl_chart.dart';

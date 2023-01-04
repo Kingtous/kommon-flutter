@@ -1,3 +1,10 @@
+## 0.3.1
+
+REFACTOR:
+
+- remove `better_player` to prevent from error on compiling.
+- specify `image` to `>=3.2.2 <3.3.0` to prevent from error on compiling.
+
 ## 0.3.0
 
 REFACTOR:

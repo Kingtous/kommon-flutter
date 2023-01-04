@@ -15,15 +15,15 @@ class LazyList<T> extends StatefulWidget {
 
   const LazyList(
       {Key? key,
-        required this.buildItem,
-        required this.load,
-        this.initialIndex = 1,
-        this.pageSize = 10,
-        this.onRefreshComplete,
-        this.onRefreshFailed,
-        this.onLoadComplete,
-        this.onLoadFailed,
-        this.scrollController})
+      required this.buildItem,
+      required this.load,
+      this.initialIndex = 1,
+      this.pageSize = 10,
+      this.onRefreshComplete,
+      this.onRefreshFailed,
+      this.onLoadComplete,
+      this.onLoadFailed,
+      this.scrollController})
       : super(key: key);
 
   @override
@@ -46,7 +46,7 @@ class _LazyListState<T> extends State<LazyList<T>>
   Widget build(BuildContext context) {
     super.build(context);
     return Obx(
-          () => SmartRefresher(
+      () => SmartRefresher(
         controller: refresh,
         scrollController: widget.scrollController,
         onRefresh: onRefresh,

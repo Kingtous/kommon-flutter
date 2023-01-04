@@ -63,7 +63,7 @@ Future<T> safeRequest<T>(
 class Request {
   static Dio dioClient = _initDio();
 
-  static setBaseUrl(String baseUrl){
+  static setBaseUrl(String baseUrl) {
     dioClient.options.baseUrl = baseUrl;
   }
 
