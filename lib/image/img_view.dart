@@ -1,11 +1,7 @@
 import 'package:animations/animations.dart';
-import 'package:bruno/bruno.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
-import 'package:getwidget/types/gf_loader_type.dart';
-import 'package:photo_view/photo_view.dart';
 
 import 'photo_galley_screen.dart';
 
@@ -47,7 +43,7 @@ class ImgView extends StatelessWidget {
       },
       progressIndicatorBuilder: (context, url, progress) {
         return progress.progress == null
-            ? Offstage()
+            ? const Offstage()
             : SizedBox(
                 height: 50,
                 width: 50,
@@ -69,13 +65,11 @@ class ImgView extends StatelessWidget {
           child: img,
         );
       }, openBuilder: (context, act) {
-        return Container(
-          child: PhotoGalleyScreen(
-            photos: [
-              NetworkImage(url),
-            ],
-            closeFunc: act,
-          ),
+        return PhotoGalleyScreen(
+          photos: [
+            NetworkImage(url),
+          ],
+          closeFunc: act,
         );
       });
     }

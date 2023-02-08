@@ -1,3 +1,9 @@
+## 0.4.0
+
+REFACTOR:
+
+- update `bruno` to `3.3.0`(support Flutter `3.7.0+`).
+
 ## 0.3.1
 
 REFACTOR:

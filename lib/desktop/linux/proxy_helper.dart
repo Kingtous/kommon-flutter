@@ -36,7 +36,7 @@ class ProxyHelper {
       "set",
       "org.gnome.system.proxy.${types.name}",
       "host",
-      "$url"
+      url
     ]);
     cmdList.add([
       "gsettings",
