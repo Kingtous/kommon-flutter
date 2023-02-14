@@ -14,6 +14,7 @@ export 'package:jh_debug/jh_debug.dart';
 export 'package:photo_view/photo_view.dart';
 export 'package:pull_to_refresh/pull_to_refresh.dart';
 export 'package:flutter_echarts/flutter_echarts.dart';
+export 'package:image_picker/image_picker.dart';
 
 /// 自身库
 export 'cache/index.dart';

@@ -1,7 +1,7 @@
 part of widgets;
 
 class ImageSelector extends StatefulWidget {
-  final RxString filePath;
+  final Rx<XFile?> file;
   final double aspectRatio;
   final double? maxWidth;
   final double? maxHeight;
@@ -9,7 +9,7 @@ class ImageSelector extends StatefulWidget {
   const ImageSelector({
     Key? key,
     this.aspectRatio = 2.0,
-    required this.filePath,
+    required this.file,
     this.maxWidth,
     this.maxHeight,
   }) : super(key: key);
@@ -25,7 +25,7 @@ class _ImageSelectorState extends State<ImageSelector> {
       aspectRatio: 2,
       child: Obx(
         () {
-          final hasSelected = widget.filePath.isNotEmpty;
+          final hasSelected = widget.file.value != null;
           return Container(
               alignment: Alignment.center,
               margin: const EdgeInsets.all(8.0),
@@ -35,7 +35,10 @@ class _ImageSelectorState extends State<ImageSelector> {
                   ? BoxDecoration(
                       image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: FileImage(File(widget.filePath.value))))
+                          image: (kIsWeb
+                                  ? NetworkImage(widget.file.value!.path)
+                                  : FileImage(File(widget.file.value!.path)))
+                              as ImageProvider))
                   : null,
               child: SizedBox(
                 width: double.infinity,
@@ -63,40 +66,51 @@ class _ImageSelectorState extends State<ImageSelector> {
   }
 
   _handleAddImg() {
-    if (widget.filePath.isNotEmpty) {
-      widget.filePath.value = "";
+    if (widget.file.value != null) {
+      widget.file.value = null;
       return;
     }
-    Get.bottomSheet(
-        BrnCommonActionSheet(
-          title: "选择添加图片方式",
-          actions: [
-            BrnCommonActionSheetItem("相机",
-                actionStyle: BrnCommonActionSheetItemStyle.alert),
-            BrnCommonActionSheetItem("相册")
-          ],
-          clickCallBack: (index, __) {
-            if (index == 0) {
-              ImagePicker()
-                  .pickImage(
-                      source: ImageSource.camera,
-                      maxHeight: widget.maxHeight,
-                      maxWidth: widget.maxWidth)
-                  .then((f) {
-                widget.filePath.value = f?.path ?? "";
-              });
-            } else {
-              ImagePicker()
-                  .pickImage(
-                      source: ImageSource.gallery,
-                      maxHeight: widget.maxHeight,
-                      maxWidth: widget.maxWidth)
-                  .then((f) {
-                widget.filePath.value = f?.path ?? "";
-              });
-            }
-          },
-        ),
-        backgroundColor: Colors.grey);
+    if (kIsWeb) {
+      ImagePicker()
+          .pickImage(
+              source: ImageSource.gallery,
+              maxHeight: widget.maxHeight,
+              maxWidth: widget.maxWidth)
+          .then((f) {
+        widget.file.value = f;
+      });
+    } else {
+      Get.bottomSheet(
+          BrnCommonActionSheet(
+            title: "选择添加图片方式",
+            actions: [
+              BrnCommonActionSheetItem("相机",
+                  actionStyle: BrnCommonActionSheetItemStyle.alert),
+              BrnCommonActionSheetItem("相册")
+            ],
+            clickCallBack: (index, __) {
+              if (index == 0) {
+                ImagePicker()
+                    .pickImage(
+                        source: ImageSource.camera,
+                        maxHeight: widget.maxHeight,
+                        maxWidth: widget.maxWidth)
+                    .then((f) {
+                  widget.file.value = f;
+                });
+              } else {
+                ImagePicker()
+                    .pickImage(
+                        source: ImageSource.gallery,
+                        maxHeight: widget.maxHeight,
+                        maxWidth: widget.maxWidth)
+                    .then((f) {
+                  widget.file.value = f;
+                });
+              }
+            },
+          ),
+          backgroundColor: Colors.grey);
+    }
   }
 }
