@@ -29,3 +29,4 @@ export 'tool/index.dart';
 export 'video/video_player.dart';
 export 'canvas/index.dart';
 export 'widgets/widgets.dart';
+export 'components/components.dart';
