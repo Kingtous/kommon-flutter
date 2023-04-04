@@ -148,3 +148,62 @@ class _TimerCircularState extends State<TimerCircular> {
           ));
   }
 }
+
+
+class TimerProgress extends StatefulWidget {
+  final int maxTimeMs;
+  final VoidCallback? onTimeComplete;
+  final Widget? onTimeCompleteWidget;
+  final Size? size;
+  final bool showCurrentTime;
+  final TextStyle? textStyle;
+  final String Function(int)? onText;
+
+  const TimerProgress(
+      {Key? key,
+      required this.maxTimeMs,
+      this.onTimeComplete,
+      this.onTimeCompleteWidget,
+      this.size,
+      this.onText,
+      this.textStyle,
+      this.showCurrentTime = true})
+      : super(key: key);
+
+  @override
+  State<TimerProgress> createState() => _TimerProgressState();
+}
+
+class _TimerProgressState extends State<TimerProgress> {
+  RxInt currentElapsedMs = 0.obs;
+  Timer? _timer;
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer.periodic(const Duration(milliseconds: 100), (timer) {
+      currentElapsedMs.value += 100;
+      if (currentElapsedMs >= widget.maxTimeMs) {
+        timer.cancel();
+        currentElapsedMs.value = widget.maxTimeMs;
+        widget.onTimeComplete?.call();
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() => currentElapsedMs.value == widget.maxTimeMs &&
+            widget.onTimeCompleteWidget != null
+        ? widget.onTimeCompleteWidget!
+        : Text("${widget.showCurrentTime
+                ? "${widget.onText?.call((currentElapsedMs / 1000).toInt())}"
+                : null}", style: widget.textStyle,));
+  }
+}
