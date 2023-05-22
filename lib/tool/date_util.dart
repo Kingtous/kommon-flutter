@@ -1,4 +1,5 @@
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
+import 'package:flutter_datetime_picker_bdaya/flutter_datetime_picker_bdaya.dart';
 import 'package:get/get.dart';
 
 class KDateUtil {
@@ -26,7 +27,7 @@ class KDateUtil {
     if (Get.context == null) {
       return null;
     }
-    return DatePicker.showDatePicker(Get.context!,
+    return DatePickerBdaya.showDatePicker(Get.context!,
         locale: LocaleType.zh,
         maxTime: DateTime.now(),
         minTime: DateTime(2000));
@@ -36,7 +37,7 @@ class KDateUtil {
     if (Get.context == null) {
       return null;
     }
-    return DatePicker.showTimePicker(Get.context!, locale: LocaleType.zh);
+    return DatePickerBdaya.showTimePicker(Get.context!, locale: LocaleType.zh);
   }
 
   static bool isInNightRange(DateTime time) {
