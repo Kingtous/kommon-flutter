@@ -17,7 +17,9 @@ dependencies:
   flutter_echarts:
     git:
       url: https://github.com/Kingtous/flutter_echarts.git
-  bruno: ^3.3.0
+  bruno:
+    git:
+      url: https://github.com/zhoujia456888/bruno
   fl_chart: ^0.55.0
   get: ^4.6.1
   getwidget: ^3.0.1
