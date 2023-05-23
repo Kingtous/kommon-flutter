@@ -30,4 +30,4 @@ export 'video/video_player.dart';
 export 'canvas/index.dart';
 export 'widgets/widgets.dart';
 export 'components/components.dart';
-export 'table/k_table.dart';
+// export 'table/k_table.dart';
