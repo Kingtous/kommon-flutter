@@ -10,7 +10,7 @@ import 'package:path/path.dart' as p;
 /// Date: 2021/6/28
 /// Mail: me@kingtous.cn
 
-enum PickSource { CAMERA, GALLERY, PLAINTEXT }
+enum PickSource { camera, gallery, plainText }
 
 class PickerService extends GetxService {
   late ImagePicker imagePicker;
@@ -27,27 +27,27 @@ class PickerService extends GetxService {
       bool needCrop = true}) async {
     XFile? f;
     switch (pickSource) {
-      case PickSource.CAMERA:
+      case PickSource.camera:
         f = await imagePicker.pickImage(
             source: ImageSource.camera,
             maxWidth: maxWidth,
             maxHeight: maxHeight,
             imageQuality: imageQuality);
         break;
-      case PickSource.GALLERY:
+      case PickSource.gallery:
         f = await imagePicker.pickImage(
             source: ImageSource.gallery,
             maxWidth: maxWidth,
             maxHeight: maxHeight,
             imageQuality: imageQuality);
         break;
-      case PickSource.PLAINTEXT:
+      case PickSource.plainText:
         final text =
             await Get.find<DialogService>().inputDialog(title: "输入选项文本");
         if (text.isEmpty) {
           return null;
         }
-        return "text://" + text;
+        return "text://$text";
       default:
         break;
     }
@@ -74,19 +74,21 @@ class PickerService extends GetxService {
 
   /// 选择视频
   Future<String?> pickVideo(PickSource pickSource) async {
-    PickedFile? f;
+    XFile? f;
     switch (pickSource) {
-      case PickSource.CAMERA:
-        f = await imagePicker.getVideo(source: ImageSource.camera);
+      case PickSource.camera:
+        f = await imagePicker.pickVideo(source: ImageSource.camera);
         break;
-      case PickSource.GALLERY:
-        f = await imagePicker.getVideo(source: ImageSource.gallery);
+      case PickSource.gallery:
+        f = await imagePicker.pickVideo(source: ImageSource.gallery);
         break;
       default:
         break;
     }
     if (f != null) {
       return f.path;
+    } else {
+      return null;
     }
   }
 

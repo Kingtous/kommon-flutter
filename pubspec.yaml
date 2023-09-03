@@ -1,11 +1,11 @@
 name: kommon
 description: kingtous common package collections.
-version: 0.4.0
+version: 0.4.1
 homepage: https://github.com/Kingtous/kommon-flutter
 documentation: https://kingtous.github.io/kommon-flutter/
 
 environment:
-  sdk: ">=2.16.1 <3.0.0"
+  sdk: ">=2.16.1 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,12 +14,8 @@ dependencies:
   cached_network_image: ^3.1.0
   photo_view: ^0.14.0
   animations: ^2.0.2
-  flutter_echarts:
-    git:
-      url: https://github.com/Kingtous/flutter_echarts.git
-  bruno:
-    git:
-      url: https://github.com/zhoujia456888/bruno
+  flutter_echarts: ^2.5.0
+  bruno: ^3.4.0
   fl_chart: ^0.55.0
   get: ^4.6.1
   getwidget: ^3.0.1

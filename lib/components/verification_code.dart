@@ -86,6 +86,7 @@ class VerificationCode extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _VerificationCodeState createState() => _VerificationCodeState();
 }
 
@@ -227,7 +228,9 @@ class _VerificationCodeState extends State<VerificationCode> {
           }
 
           if (value.isNotEmpty) {
+            // ignore: no_leading_underscores_for_local_identifiers
             String _value = value;
+            // ignore: no_leading_underscores_for_local_identifiers
             int _index = index;
 
             while (_value.isNotEmpty && _index < widget.length) {

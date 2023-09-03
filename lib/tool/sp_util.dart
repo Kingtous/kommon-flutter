@@ -54,10 +54,10 @@ class SpUtil {
   static Future<bool> setListData<T>(String key, List<T> value,
       {bool cast = false}) async {
     if (_prefs == null) await getInstance();
-    List<String> _dataList = value.map((v) {
+    List<String> dataList = value.map((v) {
       return cast ? v.toString() : json.encode(v);
     }).toList();
-    return await _prefs?.setStringList(key, _dataList) as bool;
+    return await _prefs?.setStringList(key, dataList) as bool;
   }
 
   /// 设置Map类型到缓存中去,

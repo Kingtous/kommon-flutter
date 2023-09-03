@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'interceptors/log_interceptor.dart';
 
